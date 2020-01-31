@@ -3,11 +3,11 @@
     "meta": {
         "version": "PTDL_v1"
     },
-    "exported_at": "2020-01-29T19:01:14+00:00",
+    "exported_at": "2020-01-31T00:30:31+00:00",
     "name": "Urban Terror 4.3",
     "author": "seanbarr1988@gmail.com",
     "description": "Urban Terror started as a realism based \"total conversion\" mod for Quake III Arena. Nowadays, Urban Terror is played using the free, stand-alone, ioquake3 engine modified, which doesn't require Quake III Arena, in addition to being an add-on to id Software's Quake III Arena.",
-    "image": "quay.io\/pterodactyl\/core:glibc",
+    "image": "quay.io\/parkervcp\/pterodactyl-images:alpine",
     "startup": ".\/Quake3-UrT-Ded.{{EXE}}  +exec \"server.cfg\" +set fs_game \"q3ut4\" +set fs_basepath \"\/home\/container\" +set fs_homepath \"\/home\/container\" +set dedicated \"2\" +set com_hunkmegs \"128\" +set net_port {{SERVER_PORT}}",
     "config": {
         "files": "{}",
@@ -17,9 +17,9 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\n\r\napt-get update\r\napt-get -y install wget curl zip unzip\r\n\r\ncd \/tmp\/\r\n\r\necho \"Downloading Urban Terror 4.3\"\r\nwget http:\/\/cdn.urbanterror.info\/urt\/43\/releases\/zips\/UrbanTerror434_full.zip\r\n\r\necho \"Unpacking Urban Terror 4.3\"\r\nunzip UrbanTerror434_full.zip\r\ncp -r UrbanTerror43\/* \/mnt\/server\/\r\n\r\necho \"Setting up default configs\"\r\nmv \/mnt\/server\/q3ut4\/server_example.cfg \/mnt\/server\/q3ut4\/server.cfg\r\nmv \/mnt\/server\/q3ut4\/autoexec_example.cfg \/mnt\/server\/q3ut4\/autoexec.cfg\r\nmv \/mnt\/server\/q3ut4\/mapcycle_example.txt \/mnt\/server\/q3ut4\/mapcycle.txt\r\n\r\n# prevent unnecessary file creation by the game server\r\nmkdir \/mnt\/server\/.q3a && chmod 444 \/mnt\/server\/.q3a\r\n\r\n# Remove files that are not required\r\nrm -rf \/mnt\/server\/Quake3-UrT.*\r\nrm \/mnt\/server\/*.exe\r\nrm \/mnt\/server\/q3ut4\/*.doc\r\nrm \/mnt\/server\/q3ut4\/readme*",
-            "container": "ubuntu:18.04",
-            "entrypoint": "bash"
+            "script": "#!\/bin\/ash\r\n\r\ncd \/tmp\/\r\n\r\necho \"Downloading Urban Terror 4.3\"\r\nwget http:\/\/cdn.urbanterror.info\/urt\/43\/releases\/zips\/UrbanTerror434_full.zip\r\n\r\necho \"Unpacking Urban Terror 4.3\"\r\nunzip UrbanTerror434_full.zip\r\ncp -r UrbanTerror43\/* \/mnt\/server\/\r\n\r\necho \"Setting up default configs\"\r\nmv \/mnt\/server\/q3ut4\/server_example.cfg \/mnt\/server\/q3ut4\/server.cfg\r\nmv \/mnt\/server\/q3ut4\/autoexec_example.cfg \/mnt\/server\/q3ut4\/autoexec.cfg\r\nmv \/mnt\/server\/q3ut4\/mapcycle_example.txt \/mnt\/server\/q3ut4\/mapcycle.txt\r\n\r\n# prevent unnecessary file creation by the game server\r\nmkdir \/mnt\/server\/.q3a && chmod 444 \/mnt\/server\/.q3a\r\ntouch \/mnt\/server\/q3ut4\/q3config.cfg && chmod 444 \/mnt\/server\/q3ut4\/q3config.cfg\r\n\r\n# Remove files that are not required\r\nrm -rf \/mnt\/server\/Quake3-UrT.*\r\nrm \/mnt\/server\/*.exe\r\nrm \/mnt\/server\/q3ut4\/*.doc\r\nrm \/mnt\/server\/q3ut4\/readme*",
+            "container": "alpine:3.9",
+            "entrypoint": "ash"
         }
     },
     "variables": [
