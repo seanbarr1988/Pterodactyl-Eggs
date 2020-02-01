@@ -3,7 +3,7 @@
     "meta": {
         "version": "PTDL_v1"
     },
-    "exported_at": "2020-01-31T00:30:31+00:00",
+    "exported_at": "2020-02-01T00:07:38+00:00",
     "name": "Urban Terror 4.3",
     "author": "seanbarr1988@gmail.com",
     "description": "Urban Terror started as a realism based \"total conversion\" mod for Quake III Arena. Nowadays, Urban Terror is played using the free, stand-alone, ioquake3 engine modified, which doesn't require Quake III Arena, in addition to being an add-on to id Software's Quake III Arena.",
@@ -12,7 +12,7 @@
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"------- Game Initialization -------\",\r\n    \"userInteraction\": []\r\n}",
-        "logs": "{}",
+        "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"\/home\/container\/q3ut4\/*.log\"\r\n}",
         "stop": "quit"
     },
     "scripts": {
@@ -25,7 +25,7 @@
     "variables": [
         {
             "name": "Server Version",
-            "description": "What version of the server to launch. 32 or 64 bit version. Default is 64bit server.   \r\nx86_64     (64bit Server)\r\ni386           (32bit Server)",
+            "description": "What version of the server to launch.  \r\nx86_64     (64bit Server)\r\ni386           (32bit Server)",
             "env_variable": "EXE",
             "default_value": "x86_64",
             "user_viewable": 1,
