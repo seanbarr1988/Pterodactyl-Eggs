@@ -3,12 +3,12 @@
     "meta": {
         "version": "PTDL_v1"
     },
-    "exported_at": "2020-02-16T12:00:01+00:00",
+    "exported_at": "2020-02-16T12:14:52+00:00",
     "name": "Urban Terror 4.3",
     "author": "seanbarr1988@gmail.com",
     "description": "Urban Terror started as a realism based \"total conversion\" mod for Quake III Arena. Nowadays, Urban Terror is played using the free, stand-alone, ioquake3 engine modified, which doesn't require Quake III Arena, in addition to being an add-on to id Software's Quake III Arena.",
     "image": "quay.io\/pterodactyl\/core:glibc",
-    "startup": ".\/Quake3-UrT-Ded.{EXE}  +exec \"server.cfg\" +set fs_game \"q3ut4\" +set fs_basepath \"\/home\/container\" +set fs_homepath \"\/home\/container\" +set dedicated \"2\" +set com_hunkmegs \"{HUNKMEGS}\" +set net_port \"{{SERVER_PORT}}\"",
+    "startup": ".\/Quake3-UrT-Ded.{{EXE}}  +exec \"server.cfg\" +set fs_game \"q3ut4\" +set fs_basepath \"\/home\/container\" +set fs_homepath \"\/home\/container\" +set dedicated \"2\" +set com_hunkmegs \"{{HUNKMEGS}}\" +set net_port \"{{SERVER_PORT}}\"",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"------- Game Initialization -------\",\r\n    \"userInteraction\": []\r\n}",
